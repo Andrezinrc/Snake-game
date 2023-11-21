@@ -80,7 +80,7 @@
   <div class="container">
     
     <canvas id="gameCanvas"></canvas>
-
+    
     <h2 id="voce-perdeu">Você perdeu!</h2>
     <h2 id="voce-ganhou">Você ganhou!</h2>
     <div class="botoes" id="botoes">
@@ -107,10 +107,10 @@
     <p id="tempo-poder" class="tempo-poder"></p>
     <div class="snow"></div>
     <button class="comecar-jogo" id="comecar-jogo" onclick="playAudio()">Começar</button>
+  
     <div class="pisca-pisca"></div>
   </div>
   <script>
-  
     function Carregar() {
       if (window.location.href.indexOf("file:///") !== 0) {
         
@@ -135,7 +135,7 @@
 
     window.onload = function(){
       alert("Bem-vindo ao Modo facil do Jogo da Cobrinha!\n\n" +
-        "Você tem um tempo limitado para alcançar 400 pontos.\n" +
+        "Você tem um tempo limitado para alcançar 200 pontos.\n" +
         "Colete maçãs para ganhar pontos.\n\n" +
         "Pressione 'OK' para começar.");
         
@@ -239,7 +239,7 @@
       var continuar = document.getElementById("continuar");
       var sair = document.getElementById("sair");
       var tempo = document.getElementById("tempo");
-      var tempoRestante = 5000;
+      var tempoRestante = 3500;
       
       function atualizarPontuacao() {
         
@@ -271,8 +271,7 @@
         sair.style.display = "block";
         pausar.style.display = "none";
         mensagem_perdeu.style.display = "none";
-  
-       audio.pause();
+        audio.pause();
       }, false);
       
       
@@ -291,9 +290,7 @@
         jogarNovamente.style.display = "none";
         voltar.style.display = "none";
         mensagem_perdeu.style.display = "none";
-      
         audio.play();
-          
       });
       
       
@@ -524,7 +521,8 @@
           paragrafo.textContent = "Olá, " + playerName + "!!!";
         }
       });
-    
+      
+      
       
       function typeWrite(elemento) {
         const textoArray = elemento.innerHTML.split('');
@@ -541,5 +539,4 @@
       typeWrite(titulo);
     </script>
   </body>
-  </html>
-  
+</html>
