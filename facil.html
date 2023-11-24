@@ -106,7 +106,6 @@
     <p id="tempo" class="tempo"></p>
     <p id="tempo-poder" class="tempo-poder"></p>
     <div class="snow"></div>
-    <button class="comecar-jogo" id="comecar-jogo" onclick="playAudio()">Começar</button>
   
     <div class="pisca-pisca"></div>
   </div>
@@ -119,20 +118,7 @@
         window.location.href = "facil.html?color=" + corDeFundo;
       }
     }
-    var audio = document.getElementById("myAudio");
-    audio.volume = 0.5; 
-    var comecar = document.getElementById("comecar-jogo");
     
-    
-    function playAudio() {
-      
-      comecar.style.display = "none";
-      
-      var audio = document.getElementById("myAudio");
-      audio.play();
-    
-    }
-
     window.onload = function(){
       alert("Bem-vindo ao Modo facil do Jogo da Cobrinha!\n\n" +
         "Você tem um tempo limitado para alcançar 200 pontos.\n" +
