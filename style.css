@@ -148,6 +148,10 @@ html, body {
       left: 142px;
       top: 23px;
   }
+  #cima img{
+    width: 65px;
+    height: 65px;
+  }
   #cima:hover{
     background-color: #1A1D40;
     border-radius: 50%;
@@ -167,6 +171,10 @@ html, body {
     position: relative;
     top: 110px;
     left: 142px;
+  }
+  #baixo img{
+    width: 65px;
+    height: 65px;
   }
   #baixo:hover{
     background-color: #1A1D40;
@@ -188,6 +196,10 @@ html, body {
     animation: tremer .2s;
     animation-iteration-count: 4;
   }
+  #esquerda img{
+    width: 65px;
+    height: 65px;
+  }
   #esquerda:hover{
     background-color: #1A1D40;
     
@@ -208,6 +220,10 @@ html, body {
     left: 225px;
     animation: tremer .2s;
     animation-iteration-count: 4;
+  }
+  #direita img{
+    width: 65px;
+    height: 65px;
   }
   #direita:hover{
     background-color: #1A1D40;
