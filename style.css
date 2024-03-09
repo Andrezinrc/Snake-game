@@ -453,7 +453,6 @@ html, body {
   }
   #cima:hover{
     background-color: #1A1D40;
-    border-radius: 50%;
   }
   #baixo{
     width: 65px;
@@ -473,7 +472,6 @@ html, body {
   }
   #baixo:hover{
     background-color: #1A1D40;
-    border-radius: 50%;
   }
   #esquerda{
     width: 65px;
@@ -493,8 +491,6 @@ html, body {
   }
   #esquerda:hover{
     background-color: #1A1D40;
-    
-    border-radius: 50%;
   }
   #direita{
     width: 65px;
@@ -514,7 +510,6 @@ html, body {
   }
   #direita:hover{
     background-color: #1A1D40;
-    border-radius: 50%;
   }
  } 
 }
