@@ -8,9 +8,19 @@ function Carregar() {
     }
 }
 
+var sobre = document.getElementById("sobre");
+var fecharSobre = document.getElementById("fechar-sobre");
 var params = new URLSearchParams(window.location.search);
 var selectedColor = params.get("color");
 var playerName = params.get("nome");
+
+fecharSobre.addEventListener("click", () => {
+    if(sobre.style.display === "block"){
+        sobre.style.display = "none";
+    } else {
+        sobre.style.display = "block";
+    }
+});
 
 // Exibir nome do jogador
 document.addEventListener("DOMContentLoaded", function () {
@@ -36,6 +46,7 @@ window.onload = function () {
     let velX = velocidade;
     let velY = 0;
     let macaX = macaY = 10;
+    let poderX = poderY = 20;
     let tamanhoDaPeca = 10;
     let quantidadeDePeca = 35;
     let velocidadeInicial = 80;
@@ -43,6 +54,7 @@ window.onload = function () {
     let rastro = [];
     let tail = 5;
     let temPoder = false;
+    let poderVisivel = true;
     let pontuacao = 0;
     let tempoVelocidade = 100;
     let movimenta = setInterval(meuGame, tempoVelocidade);
@@ -55,11 +67,12 @@ window.onload = function () {
     let pausar = document.getElementById("pausar");
     let continuar = document.getElementById("continuar");
     let sair = document.getElementById("sair");
-    let tempo = document.getElementById("tempo");
     let touchStartX, touchStartY;
     let touchEndX, touchEndY;
     let canvas_width = canvas.width;
     let canvas_height = canvas.height;
+    let tempo = 0;
+
 
     //controle de toque
     canvas.addEventListener("touchstart", function (event) {
@@ -96,11 +109,19 @@ window.onload = function () {
         document.getElementById("pontuacao").textContent = "Pontuação: " + pontuacao;
     }
 
+    //tempo do jogo
+    function contarTempo() {
+        tempo += 10;
+        document.getElementById("tempo").textContent = tempo;
+    }
+    let contagem = setInterval(contarTempo, 200);
+
     //botao pausar
     pausar.addEventListener("click", () => {
         velXAnterior = velX;
         velYAnterior = velY;
         clearInterval(movimenta);
+        clearInterval(contagem);
         botoes.style.display = "none";
         continuar.style.display = "block";
         sair.style.display = "block";
@@ -115,6 +136,7 @@ window.onload = function () {
         velX = velXAnterior;
         velY = velYAnterior;
         movimenta = setInterval(meuGame, tempoVelocidade);
+        contagem = setInterval(contarTempo, 200);
         botoes.style.display = "block";
         pausar.style.display = "block";
         continuar.style.display = "none";
@@ -124,6 +146,7 @@ window.onload = function () {
         jogarNovamente.style.display = "none";
         voltar.style.display = "none";
         mensagem_perdeu.style.display = "none";
+        sobre.style.display = "none";
         audio.play();
     });
 
@@ -169,13 +192,23 @@ window.onload = function () {
             ctx.stroke();
         }
 
+        //desenha a maça
         ctx.fillStyle = "yellow";
         ctx.fillRect(macaX * tamanhoDaPeca, macaY * tamanhoDaPeca, tamanhoDaPeca, tamanhoDaPeca);
+
+        // Função que desenha o poder se estiver visível
+        function desenharPoder() {
+            if (poderVisivel) {
+                ctx.fillStyle = "blue";
+                ctx.fillRect(poderX * tamanhoDaPeca, poderY * tamanhoDaPeca, tamanhoDaPeca, tamanhoDaPeca);
+            }
+        }
+        desenharPoder();
 
         //ativa efeito do poder
         if (temPoder) {
             if (cobraAzul) {
-                ctx.fillStyle = "yellow";
+                ctx.fillStyle = "blue";
             } else {
                 ctx.fillStyle = "red";
             }
@@ -201,6 +234,7 @@ window.onload = function () {
                 jogarNovamente.style.display = "block";
                 voltar.style.display = "block";
                 localStorage.setItem("pontuacao", pontuacao);
+                clearInterval(contagem);
             }
         }
 
@@ -212,9 +246,50 @@ window.onload = function () {
         while (rastro.length > tail) {
             rastro.shift();
         }
+
+        function posicaoPoder(){
+            poderX = Math.floor(Math.random() * quantidadeDePeca);
+            poderY = Math.floor(Math.random() * quantidadeDePeca);
+
+            poderVisivel = true;
+            desenharPoder();
+        }
+
+        function posicaoMaca(){
+            macaX = Math.floor(Math.random() * quantidadeDePeca);
+            macaY = Math.floor(Math.random() * quantidadeDePeca);
+        }
+
         //verifica colisao da cobra com a maça
         if (macaX == posX && macaY == posY) {
 
+            //adiciona mais um gomo na cobrinha e atualiza a posiçao da maça
+            tail++;
+            posicaoMaca();
+
+            pontuacao += 10;
+
+            if (pontuacao % 100 === 0) {
+                tempoVelocidade -= 10;
+
+                // Limita para não ficar rápido demais -> NAO TOQUE NISSO
+                if (tempoVelocidade < 40) {
+                    tempoVelocidade = 40;
+                }
+
+                // Atualiza o intervalo do jogo
+                clearInterval(movimenta);
+                movimenta = setInterval(meuGame, tempoVelocidade);
+
+                console.log("Atualizou velocidade: ", tempoVelocidade);
+            }
+            document.getElementById("pontuacao").innerHTML = "Pontuação: " + pontuacao;
+            atualizarPontuacao();
+        }
+
+        //verifica colisao da cobra com o poder
+        if (poderX == posX && poderY == posY) {
+            poderVisivel = false;
             //ativa e remove poder
             if (!temPoder) {
                 temPoder = true;
@@ -247,43 +322,16 @@ window.onload = function () {
                 setTimeout(() => {
                     document.getElementById("tempo-poder").innerHTML = " "
                 }, 7000)
+            } 
 
-            }
-
-            //adiciona mais um gomo na cobrinha e atualiza a posiçao da maça
-            tail++;
-            macaX = Math.floor(Math.random() * quantidadeDePeca);
-            macaY = Math.floor(Math.random() * quantidadeDePeca);
-
-
-            //atualiza poder e remove
-            if (!temPoder) {
-                temPoder = true;
-                setTimeout(function () {
-                    temPoder = false;
-                }, 5000);
-            }
-
-            pontuacao += 10;
-
-            if (pontuacao % 100 === 0) {
-                tempoVelocidade -= 10;
-
-                // Limita para não ficar rápido demais -> NAO TOQUE NISSO
-                if (tempoVelocidade < 20) {
-                    tempoVelocidade = 20;
-                }
-
-                // Atualiza o intervalo do jogo
-                clearInterval(movimenta);
-                movimenta = setInterval(meuGame, tempoVelocidade);
-
-                console.log("Atualizou velocidade: ", tempoVelocidade);
-            }
-            document.getElementById("pontuacao").innerHTML = "Pontuação: " + pontuacao;
-            atualizarPontuacao();
+            // espera para atualizar a nova posiçao da maça
+            setTimeout(() => {
+                posicaoPoder();
+                poderVisivel = true;
+            }, 15000);
         }
     };
+
      //controle pc
      function keyPush(event) {
         switch (event.keyCode) {

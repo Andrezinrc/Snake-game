@@ -24,7 +24,32 @@ body {
 canvas {
   border: 1px solid white;
 }
-
+.sobre{
+  display: block;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1A1D40;
+  box-shadow: 2px 2px 4px #000;
+  color: #fff;
+  padding: 20px;
+}
+.fechar-sobre{
+  width: 35px;
+  height: 35px;
+  position: relative;
+  left: 0;
+  margin-bottom: 10px;
+}
+.fechar-sobre:hover{
+  background-color: #41435f;
+}
+.fechar-sobre img{
+  width: 35px;
+  height: 35px;
+}
 container-titulo {
   position: relative;
   width: 350px;
@@ -54,11 +79,11 @@ body {
 .paragrafo {
   text-align: center;
   font-family: 'Ubuntu', sans-serif;
-  font-size: 20px;
+  font-size: 25px;
   position: absolute;
   top: 0;
   text-align: center;
-  color: #dbdcfc !important;
+  color: #1d1c1c !important;
 }
 
 .paragrafo:after {
@@ -324,12 +349,14 @@ body {
   top: -23px;
   left: 50%;
   transform: translateX(-50%);
-  color: cyan;
+  color: rgb(20, 46, 70);
+  font-size: 23px;
 }
 
 .tempo-poder {
   position: absolute;
-  top: -23px;
-  right: 80px;
-  color: red;
+  top: 355px;
+  left: 160px;
+  color: #1d1c1c;
+  font-size: 23px;
 }
