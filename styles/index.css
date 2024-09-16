@@ -1,0 +1,181 @@
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border: 0;
+}
+
+body {
+    text-align: center;
+    background-color: #ca3131;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+h1 {
+    color: #f7f7f7;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
+nav-bar {
+    position: relative;
+    top: -5px;
+}
+
+.hamburguer {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 12px;
+    left: 5%;
+    border-radius: 3px;
+}
+
+.hamburguer.ativar .line:nth-child(1) {
+    transform: rotate(-45deg);
+    transition: all 0.5s;
+}
+
+.hamburguer.ativar .line:nth-child(2) {
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.hamburguer.ativar .line:nth-child(3) {
+    transform: rotate(45deg);
+    transition: all 0.5s;
+}
+
+.line {
+    display: flex;
+    width: 25px;
+    height: 3px;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    margin: 5px 1px;
+    transform-origin: 24px;
+}
+
+.menu-mobile {
+    display: block;
+    width: 100%;
+    height: 400px;
+    list-style: none;
+    background-color: #1A1D40;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+    transition: all 0.8s;
+    z-index: 4;
+    padding: 12px;
+    opacity: 0;
+}
+
+.menu-mobile h3{
+    text-align: center;
+}
+
+.abrirMenu {
+    position: absolute;
+    top: 447px;
+    transition: all 0.8s;
+    opacity: 1;
+}
+
+.menu-mobile .nav-list {
+    padding: 20px;
+}
+
+#menu {
+    margin-top: 50px;
+}
+
+.input-container-select {
+    margin-bottom: 20px;
+    border: 1px solid #1A1D40;
+    padding: 10px 5px;
+    background-color: #27ae60;
+    border-radius: 7px;
+}
+
+.input-container-select p {
+    color: white;
+}
+
+.input-container input {
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+}
+
+select {
+    width: 300px !important;
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1A1D40;
+    border: 1px solid black;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.button {
+    width: 180px;
+    height: 50px;
+    background-color: #1A1D40;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dev-jogo {
+    color: #f8f8f8;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    text-align: center !important;
+}
+
+h2 {
+    color: #27ae60;
+}
+
+h3 {
+    color: white;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.alert-input {
+    display: none;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    height: 80px;
+    border: 1px solid red;
+    background-color: white;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.alert-input p {
+    color: red;
+}

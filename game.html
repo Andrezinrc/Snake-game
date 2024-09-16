@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="neve.css">
+  <link rel="stylesheet" href="styles/mobile.css">
+  <title>Jogo da cobrinha</title>
+</head>
+<body>
+  <h1 class="paragrafo" id="paragrafo"></h1>
+
+  <div class="container">
+    <canvas id="gameCanvas"></canvas>
+
+    <!--Menssagem perdeu-->
+    <h2 id="voce-perdeu">Você perdeu!</h2>
+
+    <!--Botoes mobile-->
+    <div class="botoes" id="botoes">
+        <div id="cima">
+          <img src="img/cima.png">
+        </div>
+
+        <div id="baixo">
+          <img src="img/baixo.png">
+        </div>
+
+        <div id="esquerda">
+          <img src="img/esquerda.png">
+        </div>
+
+        <div id="direita">
+          <img src="img/direita.png">
+        </div>
+    </div>
+
+    <!--Botao Jogar novamente-->
+    <div id="jogar-novamente" onclick="Carregar()">
+      <h1>Jogar Novamente</h1>
+    </div>
+
+    <!--Botao voltar-->
+     <div class="botao-voltar" id="voltar" onclick="Voltar">
+      <a href="index.html">Voltar</a>
+    </div>
+
+    <!--Botao pausar-->
+    <div class="botao-pause" id="pausar"></div>
+
+    <!--Botao continuar-->
+    <div id="continuar" id="continuar">
+      <h1>Continuar</h1>
+    </div>
+
+    <!--Botao sair-->
+     <div class="sair" id="sair">
+      <a href="https://www.google.com.br">Sair</a>
+    </div>
+
+    <!--Score-->
+    <div id="pontuacao" class="score">Pontuação: 0</div>
+
+    <!--Tempo do poder-->
+    <p id="tempo-poder" class="tempo-poder"></p>
+
+    <!--Floco de neve-->
+    <div class="snow"></div>
+
+    <!--Animacao do poder-->
+    <div class="pisca-pisca"></div>
+  </div>
+
+  <script src="src/game.js"></script>
+  <script src="src/index.js"></script>
+  <script src="src/controle.js"></script>
+  </body>
+</html>

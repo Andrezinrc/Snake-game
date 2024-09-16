@@ -1,0 +1,240 @@
+@media screen and (max-width: 768px) {
+    .canvas {
+        width: 350px;
+        height: 350px;
+    }
+
+    .botoes {
+        display: block;
+        position: relative;
+        top: 40px;
+        width: 352px;
+        height: 168px;
+    }
+
+    .controle {
+        display: block;
+        text-align: center;
+        text-decoration: underline;
+        color: whitesmoke;
+        position: relative;
+    }
+
+    #cima {
+        width: 65px;
+        height: 65px;
+        background-color: #27ae60;
+        color: white !important;
+        border: 1px solid black;
+        font-size: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: tremer .2s;
+        animation-iteration-count: 4;
+        position: relative;
+        left: 142px;
+        top: 23px;
+    }
+
+    #cima img {
+        width: 65px;
+        height: 65px;
+    }
+
+    #cima:hover {
+        background-color: #1A1D40;
+    }
+
+    #baixo {
+        width: 65px;
+        height: 65px;
+        background-color: #27ae60;
+        color: white !important;
+        border: 1px solid black;
+        font-size: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: tremer .2s;
+        animation-iteration-count: 4;
+        position: relative;
+        top: 110px;
+        left: 142px;
+    }
+
+    #baixo img {
+        width: 65px;
+        height: 65px;
+    }
+
+    #baixo:hover {
+        background-color: #1A1D40;
+    }
+
+    #esquerda {
+        width: 65px;
+        height: 65px;
+        background-color: #27ae60;
+        color: white !important;
+        border: 1px solid black;
+        font-size: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: -30px;
+        left: 60px;
+        animation: tremer .2s;
+        animation-iteration-count: 4;
+    }
+
+    #esquerda img {
+        width: 65px;
+        height: 65px;
+    }
+
+    #esquerda:hover {
+        background-color: #1A1D40;
+    }
+
+    #direita {
+        width: 65px;
+        height: 65px;
+        background-color: #27ae60;
+        color: white !important;
+        border: 1px solid black;
+        font-size: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: -93px;
+        left: 225px;
+        animation: tremer .2s;
+        animation-iteration-count: 4;
+    }
+
+    #direita img {
+        width: 65px;
+        height: 65px;
+    }
+
+    #direita:hover {
+        background-color: #1A1D40;
+    }
+
+    .comecar-jogo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 150px;
+        width: 240px;
+        height: 55px;
+        background-color: #c62828;
+        color: white;
+        border-radius: 30px;
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .botoes {
+        position: relative;
+        top: 0;
+        display: block;
+        width: 352px;
+        height: 168px;
+    }
+
+    .controle {
+        text-align: center;
+        text-decoration: underline;
+        color: whitesmoke;
+        position: relative;
+    }
+
+    #cima {
+        width: 65px;
+        height: 65px;
+        background-color: #27ae60;
+        color: white !important;
+        border: 2px solid black;
+        font-size: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: tremer .2s;
+        animation-iteration-count: 4;
+        position: relative;
+        left: 142px;
+        top: 23px;
+    }
+
+    #cima:hover {
+        background-color: #1A1D40;
+    }
+
+    #baixo {
+        width: 65px;
+        height: 65px;
+        background-color: #27ae60;
+        color: white !important;
+        border: 2px solid black;
+        font-size: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: tremer .2s;
+        animation-iteration-count: 4;
+        position: relative;
+        top: 35px;
+        left: 142px;
+    }
+
+    #baixo:hover {
+        background-color: #1A1D40;
+    }
+
+    #esquerda {
+        width: 65px;
+        height: 65px;
+        background-color: #27ae60;
+        color: white !important;
+        border: 2px solid black;
+        font-size: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: -30px;
+        left: 60px;
+        animation: tremer .2s;
+        animation-iteration-count: 4;
+    }
+
+    #esquerda:hover {
+        background-color: #1A1D40;
+    }
+
+    #direita {
+        width: 65px;
+        height: 65px;
+        background-color: #27ae60;
+        color: white !important;
+        border: 2px solid black;
+        font-size: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: -93px;
+        left: 225px;
+        animation: tremer .2s;
+        animation-iteration-count: 4;
+    }
+
+    #direita:hover {
+        background-color: #1A1D40;
+    }
+}
