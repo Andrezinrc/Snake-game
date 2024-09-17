@@ -6,14 +6,13 @@
 }
 
 body {
-  background-color: #ca3131;
+  background-color: #0d2c42;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
   margin: 0;
-  padding: 0;
 }
 
 html,
@@ -26,7 +25,7 @@ canvas {
 }
 .sobre{
   display: block;
-  width: 100%;
+  max-width: 500px;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -42,27 +41,48 @@ canvas {
   position: relative;
   left: 0;
   margin-bottom: 10px;
+  background-color: #41435f;
 }
 .fechar-sobre:hover{
-  background-color: #41435f;
+  background-color: #3f4053;
 }
 .fechar-sobre img{
   width: 35px;
   height: 35px;
 }
-container-titulo {
-  position: relative;
-  width: 350px;
-  height: 350px;
-  border: 1px solid white;
-  background-color: #1A1D40;
-  padding: 30px 20px;
-}
 
-.container {
+.resumo{
+  display: none;
+  width: 300px;
   position: absolute;
   left: 50%;
-  top: 3rem;
+  top: 350px;
+  transform: translateX(-50%);
+  background-color: #1A1D40;
+  box-shadow: 2px 2px 4px #000;
+  color: #fff;
+  padding: 20px;
+}
+.fechar-resumo{
+  width: 35px;
+  height: 35px;
+  position: relative;
+  left: 0;
+  margin-bottom: 10px;
+  background-color: #41435f;
+}
+.fechar-resumo:hover{
+  background-color: #3f4053;
+}
+.fechar-resumo img{
+  width: 35px;
+  height: 35px;
+}
+.container {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 6rem;
   transform: translateX(-50%);
   border: none;
 }
@@ -83,7 +103,7 @@ body {
   position: absolute;
   top: 0;
   text-align: center;
-  color: #1d1c1c !important;
+  color: #f8f8f8 !important;
 }
 
 .paragrafo:after {
@@ -157,6 +177,23 @@ body {
 .controle {
   display: none;
 }
+
+#cima {
+  display: none;
+}
+
+#baixo {
+  display: none;
+}
+
+#esquerda {
+  display: none;
+}
+
+#direita {
+  display: none;
+}
+
 
 #jogar-novamente {
   display: none;
@@ -346,17 +383,19 @@ body {
 
 .tempo {
   position: absolute;
-  top: -23px;
+  top: -30px;
   left: 50%;
   transform: translateX(-50%);
-  color: rgb(20, 46, 70);
+  color: #3f4053;
   font-size: 23px;
+  background-color: #f8f8f8;
+  box-shadow: 2px 2px 4px #000;
 }
 
 .tempo-poder {
   position: absolute;
   top: 355px;
   left: 160px;
-  color: #1d1c1c;
+  color: #f8f8f8;
   font-size: 23px;
 }

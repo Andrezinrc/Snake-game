@@ -10,20 +10,11 @@
   <title>Jogo da cobrinha</title>
 </head>
 <body>
+
   <h1 class="paragrafo" id="paragrafo"></h1>
-
   <div class="container">
-    <canvas id="gameCanvas"></canvas>
 
-    <!--explicando o jogo-->
-    <div class="sobre" id="sobre">
-      <div class="fechar-sobre" id="fechar-sobre">
-        <img src="img/fechar.png">
-      </div>
-      <h3>
-        Neste jogo da Cobrinha, o objetivo é coletar o quadradinho amarelo para ganhar pontos e aumentar seu recorde. O quadradinho azul é um poder especial que aparece temporariamente. Quando coletado, ele impede que a cobrinha colida com ela mesma por 7 segundos. Teste suas habilidades e tente bater o maior recorde possível! Boa Sorte :).
-      </h3>
-    </div>
+    <canvas id="gameCanvas"></canvas>
 
     <!--Menssagem perdeu-->
     <h2 id="voce-perdeu">Você perdeu!</h2>
@@ -85,7 +76,26 @@
     <!--Animacao do poder-->
     <div class="pisca-pisca"></div>
   </div>
+  <!--explicando o jogo-->
+  <div class="sobre" id="sobre">
+    <div class="fechar-sobre" id="fechar-sobre">
+      <img src="img/fechar.png">
+    </div>
+    <h3>
+      Neste jogo da Cobrinha, o objetivo é coletar o quadradinho amarelo para ganhar pontos e aumentar seu recorde. O quadradinho azul é um poder especial que aparece temporariamente. Quando coletado, ele impede que a cobrinha colida com ela mesma por 7 segundos. Teste suas habilidades e tente bater o maior recorde possível! Boa Sorte :).
+    </h3>
+  </div>
 
+  <!--resumo da partida-->
+  <div class="resumo" id="resumo">
+    <div class="fechar-resumo" id="fechar-resumo">
+      <img src="img/fechar.png">
+    </div>
+    <h3>Parabens vc foi otimo<h3>
+    <p id="pontuacaoJogador"></p>
+    <p id="tempoJogador"></p>
+    <h3>Desafie seus amigos.<h3>
+  </div>
   <script src="src/game.js"></script>
   <script src="src/index.js"></script>
   <script src="src/controle.js"></script>

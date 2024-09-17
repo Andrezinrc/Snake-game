@@ -9,18 +9,14 @@ function Carregar() {
 }
 
 var sobre = document.getElementById("sobre");
+var resumo = document.getElementById("resumo");
+var fecharResumo = document.getElementById("fechar-resumo");
 var fecharSobre = document.getElementById("fechar-sobre");
+var pontuacaoJogador = document.getElementById("pontuacaoJogador");
+var tempoJogador = document.getElementById("tempoJogador");
 var params = new URLSearchParams(window.location.search);
 var selectedColor = params.get("color");
 var playerName = params.get("nome");
-
-fecharSobre.addEventListener("click", () => {
-    if(sobre.style.display === "block"){
-        sobre.style.display = "none";
-    } else {
-        sobre.style.display = "block";
-    }
-});
 
 // Exibir nome do jogador
 document.addEventListener("DOMContentLoaded", function () {
@@ -49,7 +45,6 @@ window.onload = function () {
     let poderX = poderY = 20;
     let tamanhoDaPeca = 10;
     let quantidadeDePeca = 35;
-    let velocidadeInicial = 80;
     let peca = 5;
     let rastro = [];
     let tail = 5;
@@ -58,7 +53,7 @@ window.onload = function () {
     let pontuacao = 0;
     let tempoVelocidade = 100;
     let movimenta = setInterval(meuGame, tempoVelocidade);
-    let direcaoAtual = "direita";
+    var contagem = null;
     let mensagem_perdeu = document.getElementById("voce-perdeu");
     let jogarNovamente = document.getElementById("jogar-novamente");
     let botoes = document.getElementById("botoes");
@@ -69,9 +64,8 @@ window.onload = function () {
     let sair = document.getElementById("sair");
     let touchStartX, touchStartY;
     let touchEndX, touchEndY;
-    let canvas_width = canvas.width;
-    let canvas_height = canvas.height;
     let tempo = 0;
+    var vcPerdeu = false;
 
 
     //controle de toque
@@ -114,8 +108,38 @@ window.onload = function () {
         tempo += 10;
         document.getElementById("tempo").textContent = tempo;
     }
-    let contagem = setInterval(contarTempo, 200);
+    
+    let container = document.querySelector(".container");
 
+    fecharSobre.addEventListener("click", () => {
+        if(sobre.style.display === "block"){
+            contagem = setInterval(contarTempo, 200);
+            sobre.style.display = "none";
+            container.style.display =  "block";
+        } else {
+            sobre.style.display = "block";
+            container.style.display =  "none";
+        }
+    });
+
+    function fecharTelaPerdeu() {
+        document.getElementById("resumo").style.display = "none";
+        vcPerdeu = false;
+        pontuacao = 0;
+        tempoRestante = 60;
+        Carregar();
+    }
+
+    fecharResumo.addEventListener("click", () => {
+        if (resumo.style.display === "block" || resumo.style.display === "") {
+            resumo.style.display = "none";
+            fecharTelaPerdeu()
+        } else {
+            resumo.style.display = "block";
+        }
+    });
+    
+    
     //botao pausar
     pausar.addEventListener("click", () => {
         velXAnterior = velX;
@@ -150,6 +174,21 @@ window.onload = function () {
         audio.play();
     });
 
+    function perdeu(){
+        velX = velY = 0;
+        tail = 5;
+        resumo.style.display = "block";
+        pontuacaoJogador.innerText = `Sua pontucao: ${pontuacao}`;
+        tempoJogador.innerText = `Seu tempo: ${tempo}`;
+        mensagem_perdeu.style.display = "block";
+        pausar.style.display = "none";
+        botoes.style.display = "none";
+        jogarNovamente.style.display = "block";
+        voltar.style.display = "block";
+        localStorage.setItem("pontuacao", pontuacao);
+        clearInterval(contagem);
+    }
+    
 
     //funcao do jogo
     var meuGame = () => {
@@ -225,16 +264,10 @@ window.onload = function () {
 
             //verifica colisao da cobra com ela mesma
             if (!temPoder && rastro[i].x == posX && rastro[i].y == posY) {
-                velX = velY = 0;
-                tail = 5;
-
-                mensagem_perdeu.style.display = "block";
-                pausar.style.display = "none";
-                botoes.style.display = "none";
-                jogarNovamente.style.display = "block";
-                voltar.style.display = "block";
-                localStorage.setItem("pontuacao", pontuacao);
-                clearInterval(contagem);
+                vcPerdeu = true;
+                if(vcPerdeu){
+                    perdeu();
+                }
             }
         }
 
