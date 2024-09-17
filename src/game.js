@@ -9,8 +9,6 @@ function Carregar() {
 }
 
 var sobre = document.getElementById("sobre");
-var resumo = document.getElementById("resumo");
-var fecharResumo = document.getElementById("fechar-resumo");
 var fecharSobre = document.getElementById("fechar-sobre");
 var params = new URLSearchParams(window.location.search);
 var selectedColor = params.get("color");
@@ -56,37 +54,12 @@ window.onload = function () {
     let jogarNovamente = document.getElementById("jogar-novamente");
     let botoes = document.getElementById("botoes");
     let voltar = document.getElementById("voltar");
-    let cobraAzul = true;
+    let cobraVerde = true;
     let pausar = document.getElementById("pausar");
     let continuar = document.getElementById("continuar");
-    let sair = document.getElementById("sair");
-    let touchStartX, touchStartY;
-    let touchEndX, touchEndY;
+    let sair = document.getElementById("sair")
     let tempo = 0;
-    var vcPerdeu = false;
-
-
-    //controle de toque
-    canvas.addEventListener("touchstart", function (event) {
-        touchStartX = event.touches[0].clientX;
-        touchStartY = event.touches[0].clientY;
-    });
-
-    canvas.addEventListener("touchmove", function (event) {
-        touchEndX = event.touches[0].clientX;
-        touchEndY = event.touches[0].clientY;
-
-        if (Math.abs(touchEndX - touchStartX) > Math.abs(touchEndY - touchStartY)) {
-            velX = (touchEndX > touchStartX) ? velocidade : -velocidade;
-            velY = 0;
-        } else {
-            velY = (touchEndY > touchStartY) ? velocidade : -velocidade;
-            velX = 0;
-        }
-
-        touchStartX = touchEndX;
-        touchStartY = touchEndY;
-    });
+    let container = document.querySelector(".container");
 
 
     piscaPisca.style.left = "150px";
@@ -106,17 +79,19 @@ window.onload = function () {
         tempo += 10;
         document.getElementById("tempo").textContent = tempo;
     }
-    
-    let container = document.querySelector(".container");
 
+
+    //botao que fecha a explicaçao
     fecharSobre.addEventListener("click", () => {
-        if(sobre.style.display === "block"){
+        const computedStyle = window.getComputedStyle(sobre);
+    
+        if (computedStyle.display === "block") {
             contagem = setInterval(contarTempo, 200);
             sobre.style.display = "none";
-            container.style.display =  "block";
+            container.style.display = "block";
         } else {
             sobre.style.display = "block";
-            container.style.display =  "none";
+            container.style.display = "none";
         }
     });
     
@@ -162,8 +137,9 @@ window.onload = function () {
         mensagem_perdeu.style.display = "none";
         canvas.width = window.innerWidth = 350;
         canvas.height = window.innerHeight = 350;
-        canvas.style.background = "#2E3A4F";
-        canvas.style.opacity = 0.9;
+        canvas.style.background = "#1F2933";
+        canvas.style.opacity = 0.8;
+
 
         posX += velX;
         posY += velY;
@@ -182,7 +158,8 @@ window.onload = function () {
         }
 
         // grades
-        ctx.strokeStyle = "black";
+        ctx.shadowColor = "rgba(0, 0, 0, 0.2)";
+        ctx.shadowBlur = 10;
         for (var x = 0; x < canvas.width; x += tamanhoDaPeca) {
             ctx.beginPath();
             ctx.moveTo(x, 0);
@@ -198,13 +175,13 @@ window.onload = function () {
         }
 
         //desenha a maça
-        ctx.fillStyle = "yellow";
+        ctx.fillStyle = "#F76C5E";
         ctx.fillRect(macaX * tamanhoDaPeca, macaY * tamanhoDaPeca, tamanhoDaPeca, tamanhoDaPeca);
 
         // Função que desenha o poder se estiver visível
         function desenharPoder() {
             if (poderVisivel) {
-                ctx.fillStyle = "blue";
+                ctx.fillStyle = "#5BC0EB";
                 ctx.fillRect(poderX * tamanhoDaPeca, poderY * tamanhoDaPeca, tamanhoDaPeca, tamanhoDaPeca);
             }
         }
@@ -212,14 +189,14 @@ window.onload = function () {
 
         //ativa efeito do poder
         if (temPoder) {
-            if (cobraAzul) {
-                ctx.fillStyle = "blue";
+            if (cobraVerde) {
+                ctx.fillStyle = "#5BC0EB";
             } else {
-                ctx.fillStyle = "red";
+                ctx.fillStyle = "#6ECB63";
             }
-            cobraAzul = !cobraAzul;
+            cobraVerde = !cobraVerde;
         } else {
-            ctx.fillStyle = "red";
+            ctx.fillStyle = "#6ECB63";
         }
 
 
@@ -251,6 +228,7 @@ window.onload = function () {
             rastro.shift();
         }
 
+        //funcao para  atualizar a nova posiçao do poder
         function posicaoPoder(){
             poderX = Math.floor(Math.random() * quantidadeDePeca);
             poderY = Math.floor(Math.random() * quantidadeDePeca);
@@ -259,6 +237,7 @@ window.onload = function () {
             desenharPoder();
         }
 
+        //funcao para  atualizar a nova posiçao da maça
         function posicaoMaca(){
             macaX = Math.floor(Math.random() * quantidadeDePeca);
             macaY = Math.floor(Math.random() * quantidadeDePeca);
@@ -301,31 +280,19 @@ window.onload = function () {
                     temPoder = false;
                 }, 7000);
 
-                // isto e uma gambiarra, mas vai funcionar..
-                var tempo1 = setTimeout(() => {
-                    document.getElementById("tempo-poder").innerHTML = "7"
-                }, 0)
-                var tempo2 = setTimeout(() => {
-                    document.getElementById("tempo-poder").innerHTML = "6"
-                }, 1000)
-                var tempo3 = setTimeout(() => {
-                    document.getElementById("tempo-poder").innerHTML = "5"
-                }, 2000)
-                var tempo4 = setTimeout(() => {
-                    document.getElementById("tempo-poder").innerHTML = "4"
-                }, 3000)
-                var tempo5 = setTimeout(() => {
-                    document.getElementById("tempo-poder").innerHTML = "3"
-                }, 4000)
-                var tempo6 = setTimeout(() => {
-                    document.getElementById("tempo-poder").innerHTML = "2"
-                }, 5000)
-                var tempo7 = setTimeout(() => {
-                    document.getElementById("tempo-poder").innerHTML = "1"
-                }, 6000)
-                setTimeout(() => {
-                    document.getElementById("tempo-poder").innerHTML = " "
-                }, 7000)
+
+                //mostr o tempo  restante do poder
+                var poderTempo = 7;
+
+                for (let i = 0; i <= poderTempo; i++) {
+                    setTimeout(() => {
+                        if (poderTempo - i === 0) {
+                            document.getElementById("tempo-poder").innerHTML = " ";
+                        } else {
+                            document.getElementById("tempo-poder").innerHTML = poderTempo - i;
+                        }
+                    }, 1000 * i);
+                }
             } 
 
             // espera para atualizar a nova posiçao da maça
@@ -384,3 +351,28 @@ window.onload = function () {
 
     movimenta = setInterval(meuGame, tempoVelocidade);
 };
+
+let touchStartX, touchStartY;
+let touchEndX, touchEndY;
+
+//controle de toque mobile
+canvas.addEventListener("touchstart", function (event) {
+    touchStartX = event.touches[0].clientX;
+    touchStartY = event.touches[0].clientY;
+});
+
+canvas.addEventListener("touchmove", function (event) {
+    touchEndX = event.touches[0].clientX;
+    touchEndY = event.touches[0].clientY;
+
+    if (Math.abs(touchEndX - touchStartX) > Math.abs(touchEndY - touchStartY)) {
+        velX = (touchEndX > touchStartX) ? velocidade : -velocidade;
+        velY = 0;
+    } else {
+        velY = (touchEndY > touchStartY) ? velocidade : -velocidade;
+        velX = 0;
+    }
+
+    touchStartX = touchEndX;
+    touchStartY = touchEndY;
+});

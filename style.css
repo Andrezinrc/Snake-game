@@ -20,10 +20,6 @@ body {
   overflow: hidden;
 }
 
-canvas {
-  color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
 .sobre{
   display: block;
   max-width: 500px;
@@ -31,8 +27,8 @@ canvas {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-color: #2E3A4F;
-  box-shadow: 2px 2px 4px #000;
+  background-color: #1F2933;
+  opacity: 0.8;
   color: #fff;
   padding: 20px;
 }
@@ -381,6 +377,6 @@ body {
   position: absolute;
   top: 355px;
   left: 160px;
-  color: #27ae60;
+  color: #ff0000;
   font-size: 23px;
 }
