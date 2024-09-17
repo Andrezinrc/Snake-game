@@ -256,8 +256,8 @@ window.onload = function () {
                 tempoVelocidade -= 10;
 
                 // Limita para não ficar rápido demais -> NAO TOQUE NISSO
-                if (tempoVelocidade < 40) {
-                    tempoVelocidade = 40;
+                if (tempoVelocidade < 50) {
+                    tempoVelocidade = 50;
                 }
 
                 // Atualiza o intervalo do jogo
