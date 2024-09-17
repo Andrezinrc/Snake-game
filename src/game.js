@@ -12,8 +12,6 @@ var sobre = document.getElementById("sobre");
 var resumo = document.getElementById("resumo");
 var fecharResumo = document.getElementById("fechar-resumo");
 var fecharSobre = document.getElementById("fechar-sobre");
-var pontuacaoJogador = document.getElementById("pontuacaoJogador");
-var tempoJogador = document.getElementById("tempoJogador");
 var params = new URLSearchParams(window.location.search);
 var selectedColor = params.get("color");
 var playerName = params.get("nome");
@@ -121,23 +119,6 @@ window.onload = function () {
             container.style.display =  "none";
         }
     });
-
-    function fecharTelaPerdeu() {
-        document.getElementById("resumo").style.display = "none";
-        vcPerdeu = false;
-        pontuacao = 0;
-        tempoRestante = 60;
-        Carregar();
-    }
-
-    fecharResumo.addEventListener("click", () => {
-        if (resumo.style.display === "block" || resumo.style.display === "") {
-            resumo.style.display = "none";
-            fecharTelaPerdeu()
-        } else {
-            resumo.style.display = "block";
-        }
-    });
     
     
     //botao pausar
@@ -173,21 +154,6 @@ window.onload = function () {
         sobre.style.display = "none";
         audio.play();
     });
-
-    function perdeu(){
-        velX = velY = 0;
-        tail = 5;
-        resumo.style.display = "block";
-        pontuacaoJogador.innerText = `Sua pontucao: ${pontuacao}`;
-        tempoJogador.innerText = `Seu tempo: ${tempo}`;
-        mensagem_perdeu.style.display = "block";
-        pausar.style.display = "none";
-        botoes.style.display = "none";
-        jogarNovamente.style.display = "block";
-        voltar.style.display = "block";
-        localStorage.setItem("pontuacao", pontuacao);
-        clearInterval(contagem);
-    }
     
 
     //funcao do jogo
@@ -264,10 +230,15 @@ window.onload = function () {
 
             //verifica colisao da cobra com ela mesma
             if (!temPoder && rastro[i].x == posX && rastro[i].y == posY) {
-                vcPerdeu = true;
-                if(vcPerdeu){
-                    perdeu();
-                }
+                velX = velY = 0;
+                tail = 5;
+                mensagem_perdeu.style.display = "block";
+                pausar.style.display = "none";
+                botoes.style.display = "none";
+                jogarNovamente.style.display = "block";
+                voltar.style.display = "block";
+                localStorage.setItem("pontuacao", pontuacao);
+                clearInterval(contagem);
             }
         }
 

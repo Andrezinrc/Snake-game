@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #0d2c42;
+  background-color: #f3f4f6;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,7 +21,8 @@ body {
 }
 
 canvas {
-  border: 1px solid white;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 .sobre{
   display: block;
@@ -82,8 +83,8 @@ canvas {
   display: none;
   position: absolute;
   left: 50%;
-  top: 6rem;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   border: none;
 }
 
@@ -99,11 +100,11 @@ body {
 .paragrafo {
   text-align: center;
   font-family: 'Ubuntu', sans-serif;
-  font-size: 25px;
+  font-size: 23px;
   position: absolute;
   top: 0;
   text-align: center;
-  color: #f8f8f8 !important;
+  color: #333 !important;
 }
 
 .paragrafo:after {
@@ -203,13 +204,16 @@ body {
   top: 23rem;
   width: 190px;
   height: 45px;
+  border-radius: 8px;
   background-color: #27ae60;
-  border: 1px solid black;
-  border-radius: 5px;
+  border: 2px solid #1b5e20;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 #jogar-novamente:hover {
-  background-color: #1A1D40;
+  background: linear-gradient(145deg, #1a1d40, #283593);
 }
 
 #jogar-novamente h1 {
@@ -269,14 +273,17 @@ body {
   top: 27rem;
   width: 190px;
   height: 45px;
+  border-radius: 8px;
   background-color: #27ae60;
-  border: 1px solid black;
-  border-radius: 5px;
+  border: 2px solid #1b5e20;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 
 .botao-voltar:hover {
-  background-color: #1A1D40;
+  background: linear-gradient(145deg, #1a1d40, #283593);
 }
 
 .botao-voltar a {
@@ -295,9 +302,12 @@ body {
   right: 0;
   width: 35px;
   height: 35px;
+  border-radius: 8px;
   background-color: #27ae60;
-  border: 1px solid black !important;
-  border-radius: 3px;
+  border: 2px solid #1b5e20;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s, transform 0.2s;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -319,7 +329,7 @@ body {
 }
 
 .botao-pause:hover {
-  background-color: #1A1D40;
+  background: linear-gradient(145deg, #1a1d40, #283593);
 }
 
 #continuar {
@@ -330,13 +340,16 @@ body {
   top: 23rem;
   width: 190px;
   height: 45px;
+  border-radius: 8px;
   background-color: #27ae60;
-  border: 1px solid black;
-  border-radius: 5px;
+  border: 2px solid #1b5e20;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 #continuar:hover {
-  background-color: #1A1D40;
+  background: linear-gradient(145deg, #1a1d40, #283593);
 }
 
 #continuar h1 {
@@ -354,13 +367,16 @@ body {
   top: 27rem;
   width: 190px;
   height: 45px;
+  border-radius: 8px;
   background-color: #27ae60;
-  border: 1px solid black;
-  border-radius: 5px;
+  border: 2px solid #1b5e20;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .sair:hover {
-  background-color: #1A1D40;
+  background: linear-gradient(145deg, #1a1d40, #283593);
 }
 
 .sair a {
@@ -373,12 +389,11 @@ body {
   font-size: 20px;
 }
 
-.score {
+.pontuacao {
   position: absolute;
   top: -22px;
-  color: white;
+  color: #333;
   font-size: 18px;
-  text-shadow: 2px 2px 4px #000;
 }
 
 .tempo {
@@ -386,16 +401,15 @@ body {
   top: -30px;
   left: 50%;
   transform: translateX(-50%);
-  color: #3f4053;
   font-size: 23px;
-  background-color: #f8f8f8;
-  box-shadow: 2px 2px 4px #000;
+  color: #333;
+  padding: 1px;
 }
 
 .tempo-poder {
   position: absolute;
   top: 355px;
   left: 160px;
-  color: #f8f8f8;
+  color: #27ae60;
   font-size: 23px;
 }

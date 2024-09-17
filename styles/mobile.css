@@ -1,7 +1,8 @@
 @media screen and (max-width: 768px) {
-    .sobre{
+    .sobre {
         width: 100%;
     }
+
     .canvas {
         width: 350px;
         height: 350px;
@@ -23,108 +24,48 @@
         position: relative;
     }
 
-    #cima {
+    #cima, #baixo, #esquerda, #direita {
         width: 65px;
         height: 65px;
         background-color: #27ae60;
-        color: white !important;
-        border: 1px solid black;
-        font-size: 50px;
+        color: white;
+        border: 2px solid #1b5e20;
+        border-radius: 8px;
+        font-size: 40px;
         display: flex;
         justify-content: center;
         align-items: center;
-        animation: tremer .2s;
-        animation-iteration-count: 4;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    #cima:hover, #baixo:hover, #esquerda:hover, #direita:hover {
+        background: linear-gradient(145deg, #1a1d40, #283593);
+        transform: scale(1.1);
+    }
+
+    #cima {
         position: relative;
         left: 142px;
         top: 23px;
     }
 
-    #cima img {
-        width: 65px;
-        height: 65px;
-    }
-
-    #cima:hover {
-        background-color: #1A1D40;
-    }
-
     #baixo {
-        width: 65px;
-        height: 65px;
-        background-color: #27ae60;
-        color: white !important;
-        border: 1px solid black;
-        font-size: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        animation: tremer .2s;
-        animation-iteration-count: 4;
         position: relative;
         top: 110px;
         left: 142px;
     }
 
-    #baixo img {
-        width: 65px;
-        height: 65px;
-    }
-
-    #baixo:hover {
-        background-color: #1A1D40;
-    }
-
     #esquerda {
-        width: 65px;
-        height: 65px;
-        background-color: #27ae60;
-        color: white !important;
-        border: 1px solid black;
-        font-size: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         position: relative;
         top: -30px;
         left: 60px;
-        animation: tremer .2s;
-        animation-iteration-count: 4;
-    }
-
-    #esquerda img {
-        width: 65px;
-        height: 65px;
-    }
-
-    #esquerda:hover {
-        background-color: #1A1D40;
     }
 
     #direita {
-        width: 65px;
-        height: 65px;
-        background-color: #27ae60;
-        color: white !important;
-        border: 1px solid black;
-        font-size: 60px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         position: relative;
         top: -93px;
         left: 225px;
-        animation: tremer .2s;
-        animation-iteration-count: 4;
-    }
-
-    #direita img {
-        width: 65px;
-        height: 65px;
-    }
-
-    #direita:hover {
-        background-color: #1A1D40;
     }
 
     .comecar-jogo {
@@ -134,10 +75,17 @@
         top: 150px;
         width: 240px;
         height: 55px;
-        background-color: #c62828;
+        background: linear-gradient(145deg, #c62828, #b71c1c);
         color: white;
         border-radius: 30px;
         font-size: 25px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .comecar-jogo:hover {
+        background: linear-gradient(145deg, #b71c1c, #c62828);
+        transform: scale(1.05);
     }
 }
 
@@ -150,94 +98,46 @@
         height: 168px;
     }
 
-    .controle {
-        text-align: center;
-        text-decoration: underline;
-        color: whitesmoke;
-        position: relative;
-    }
-
-    #cima {
+    #cima, #baixo, #esquerda, #direita {
         width: 65px;
         height: 65px;
         background-color: #27ae60;
-        color: white !important;
-        border: 2px solid black;
-        font-size: 50px;
+        color: white;
+        border-radius: 8px;
+        font-size: 40px;
         display: flex;
         justify-content: center;
         align-items: center;
-        animation: tremer .2s;
-        animation-iteration-count: 4;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    #cima:hover, #baixo:hover, #esquerda:hover, #direita:hover {
+        background: linear-gradient(145deg, #1a1d40, #283593);
+        transform: scale(1.1);
+    }
+
+    #cima {
         position: relative;
         left: 142px;
         top: 23px;
     }
 
-    #cima:hover {
-        background-color: #1A1D40;
-    }
-
     #baixo {
-        width: 65px;
-        height: 65px;
-        background-color: #27ae60;
-        color: white !important;
-        border: 2px solid black;
-        font-size: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        animation: tremer .2s;
-        animation-iteration-count: 4;
         position: relative;
         top: 35px;
         left: 142px;
     }
 
-    #baixo:hover {
-        background-color: #1A1D40;
-    }
-
     #esquerda {
-        width: 65px;
-        height: 65px;
-        background-color: #27ae60;
-        color: white !important;
-        border: 2px solid black;
-        font-size: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         position: relative;
         top: -30px;
         left: 60px;
-        animation: tremer .2s;
-        animation-iteration-count: 4;
-    }
-
-    #esquerda:hover {
-        background-color: #1A1D40;
     }
 
     #direita {
-        width: 65px;
-        height: 65px;
-        background-color: #27ae60;
-        color: white !important;
-        border: 2px solid black;
-        font-size: 60px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         position: relative;
         top: -93px;
         left: 225px;
-        animation: tremer .2s;
-        animation-iteration-count: 4;
-    }
-
-    #direita:hover {
-        background-color: #1A1D40;
     }
 }
