@@ -154,7 +154,7 @@ window.onload = function () {
         sobre.style.display = "none";
         audio.play();
     });
-    
+
 
     //funcao do jogo
     var meuGame = () => {
@@ -162,7 +162,7 @@ window.onload = function () {
         mensagem_perdeu.style.display = "none";
         canvas.width = window.innerWidth = 350;
         canvas.height = window.innerHeight = 350;
-        canvas.style.background = "#1A1D40";
+        canvas.style.background = "#2E3A4F";
         canvas.style.opacity = 0.9;
 
         posX += velX;

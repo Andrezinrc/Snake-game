@@ -31,7 +31,7 @@ canvas {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-color: #1A1D40;
+  background-color: #2E3A4F;
   box-shadow: 2px 2px 4px #000;
   color: #fff;
   padding: 20px;
@@ -42,7 +42,9 @@ canvas {
   position: relative;
   left: 0;
   margin-bottom: 10px;
-  background-color: #41435f;
+  background-color: #494a5e;
+  border: 1px solid #ccc;
+  border-radius: 50%;
 }
 .fechar-sobre:hover{
   background-color: #3f4053;
@@ -52,33 +54,7 @@ canvas {
   height: 35px;
 }
 
-.resumo{
-  display: none;
-  width: 300px;
-  position: absolute;
-  left: 50%;
-  top: 350px;
-  transform: translateX(-50%);
-  background-color: #1A1D40;
-  box-shadow: 2px 2px 4px #000;
-  color: #fff;
-  padding: 20px;
-}
-.fechar-resumo{
-  width: 35px;
-  height: 35px;
-  position: relative;
-  left: 0;
-  margin-bottom: 10px;
-  background-color: #41435f;
-}
-.fechar-resumo:hover{
-  background-color: #3f4053;
-}
-.fechar-resumo img{
-  width: 35px;
-  height: 35px;
-}
+
 .container {
   display: none;
   position: absolute;
@@ -206,7 +182,6 @@ body {
   height: 45px;
   border-radius: 8px;
   background-color: #27ae60;
-  border: 2px solid #1b5e20;
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s, transform 0.2s;
@@ -275,7 +250,6 @@ body {
   height: 45px;
   border-radius: 8px;
   background-color: #27ae60;
-  border: 2px solid #1b5e20;
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s, transform 0.2s;
@@ -304,7 +278,6 @@ body {
   height: 35px;
   border-radius: 8px;
   background-color: #27ae60;
-  border: 2px solid #1b5e20;
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s, transform 0.2s;
@@ -342,7 +315,6 @@ body {
   height: 45px;
   border-radius: 8px;
   background-color: #27ae60;
-  border: 2px solid #1b5e20;
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s, transform 0.2s;
@@ -369,7 +341,6 @@ body {
   height: 45px;
   border-radius: 8px;
   background-color: #27ae60;
-  border: 2px solid #1b5e20;
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s, transform 0.2s;
