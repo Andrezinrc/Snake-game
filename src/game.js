@@ -135,11 +135,19 @@ window.onload = function () {
     var meuGame = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         mensagem_perdeu.style.display = "none";
-        canvas.width = window.innerWidth = 350;
-        canvas.height = window.innerHeight = 350;
-        canvas.style.background = "#1F2933";
+        
+        canvas.width = 350;
+        canvas.height = 350;
+        
+        const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+        gradient.addColorStop(0, "#1a1d40");
+        gradient.addColorStop(1, "#283593");
+        
+        // Aplicando o gradiente como o fundo
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
         canvas.style.opacity = 0.8;
-
 
         posX += velX;
         posY += velY;
